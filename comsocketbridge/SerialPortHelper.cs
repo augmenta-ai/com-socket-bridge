@@ -64,7 +64,7 @@ namespace ComSocketBridge
         {
             SerialPort sp = (SerialPort)sender;
             _buffer += sp.ReadExisting();
-            if (_buffer.Contains("\r"))
+            if (_buffer.Contains("\r") || _buffer.Contains("\n"))
             {
                 Log(_buffer);
                 Broadcast(_buffer);
